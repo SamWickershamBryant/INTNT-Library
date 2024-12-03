@@ -1,7 +1,7 @@
-// db.js
+
 
 const mongoose = require('mongoose');
-//const uri = "mongodb+srv://swb42:4PshU19aiMPnZJIJ@books.9tevg.mongodb.net/?retryWrites=true&w=majority&appName=Books";
+
 const uri = process.env.URI;
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 mongoose.connect(uri, clientOptions);

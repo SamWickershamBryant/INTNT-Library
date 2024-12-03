@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './Header';
+import AvailableBooks from './AvailableBooks';
+import CheckedOutBooks from './CheckedOutBooks';
+import CheckOutBook from './CheckOutBook';
+import CheckInBook from './CheckInBook';
 
 function App() {
-  const [message, setMessage] = useState('')
-  useEffect(() => {
-    fetch('http://localhost:3000/')
-      .then(response => response.text())
-      .then(data => setMessage(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
   return (
-    <div className="App">
-      <h1>API results:</h1>
-      <p>{message}</p>
-    </div>
+    <BrowserRouter>
+    <p>Made by <b>Sam Bryant</b> and <b>Greyson Hamlin</b></p>
+      
+      <Header />
+      <Routes>
+        <Route path="/" element={<AvailableBooks />} />
+        <Route path="/checked-out-books" element={<CheckedOutBooks />} />
+        <Route path="/checkout/:id" element={<CheckOutBook />} />
+        <Route path="/checkin/:id" element={<CheckInBook />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

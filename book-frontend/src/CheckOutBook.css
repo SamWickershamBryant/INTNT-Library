@@ -1,0 +1,72 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .book-details {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .book-details th,
+  .book-details td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .book-details th {
+    background-color: #007bff;
+    color: white;
+    width: 30%;
+  }
+  
+  .book-details tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .checkout-button {
+    background-color: #28a745; 
+  }
+  
+  .checkout-button:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545; 
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
+  input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  

@@ -1,6 +1,20 @@
 const Book = require('./db');
 
-// Get all available books
+exports.getBookById = async (req, res) => {
+    try {
+      const bookId = req.params.id;
+      const book = await Book.findById(bookId);
+      if (!book) {
+        return res.status(404).json({ message: 'Book not found' });
+      }
+      res.json(book);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Error getting book by ID' });
+    }
+  };
+
+
 exports.getAvailableBooks = async (req, res) => {
   try {
     const books = await Book.find({ checkedOut: false });
@@ -11,7 +25,7 @@ exports.getAvailableBooks = async (req, res) => {
   }
 };
 
-// Get all checked out books
+
 exports.getCheckedOutBooks = async (req, res) => {
   try {
     const books = await Book.find({ checkedOut: true });
@@ -22,7 +36,7 @@ exports.getCheckedOutBooks = async (req, res) => {
   }
 };
 
-// Check out a book
+
 exports.checkOutBook = async (req, res) => {
   try {
     const bookId = req.params.id;
@@ -44,7 +58,7 @@ exports.checkOutBook = async (req, res) => {
   }
 };
 
-// Check in a book
+
 exports.checkInBook = async (req, res) => {
   try {
     const bookId = req.params.id;

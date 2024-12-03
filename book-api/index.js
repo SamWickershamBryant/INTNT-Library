@@ -1,4 +1,4 @@
-// server.js
+
 require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
@@ -13,6 +13,7 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+app.get('/book/:id', bookController.getBookById);
 app.get('/books/available', bookController.getAvailableBooks);
 app.get('/books/checked-out', bookController.getCheckedOutBooks);
 app.put('/books/:id/check-out', bookController.checkOutBook);
