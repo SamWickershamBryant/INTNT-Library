@@ -1,9 +1,10 @@
 // server.js
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
-//const db = require('./db');
+const bookController = require('./controller');
 
 app.use(express.json());
 app.use(cors());
@@ -12,6 +13,10 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+app.get('/books/available', bookController.getAvailableBooks);
+app.get('/books/checked-out', bookController.getCheckedOutBooks);
+app.put('/books/:id/check-out', bookController.checkOutBook);
+app.put('/books/:id/check-in', bookController.checkInBook);
 
 app.use((err, req, res, next) => {
 console.error('Error:', err);
